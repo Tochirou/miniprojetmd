@@ -6,9 +6,15 @@ public class JeuHanoi {
 	public JeuHanoi(int nbDisques) {
 		this.setNbDisques(nbDisques);
 	}
-	
-	
-	
+
+	public static void hanoi(int n, String from, String temp, String to) {
+		if (n == 0)
+			return;
+		hanoi(n - 1, from, to, temp);
+		System.out
+				.println("Bougez le disque " + n + " de " + from + " ‡ " + to);
+		hanoi(n - 1, temp, from, to);
+	}
 
 	public int getNbDisques() {
 		return nbDisques;
@@ -20,12 +26,13 @@ public class JeuHanoi {
 
 	public static void main(String args[]) {
 		int argumentNbDisque = Integer.parseInt(args[0]);
-		JeuHanoi jh;
+		JeuHanoi jh = null;
 		if (argumentNbDisque < 0 || argumentNbDisque > 50) {
 			System.out.println("La valeur entr√®e est incorrecte.");
 		} else {
 			jh = new JeuHanoi(argumentNbDisque);
 		}
+		hanoi(jh.getNbDisques(), "A", "B", "C");
 
 	}
 }
