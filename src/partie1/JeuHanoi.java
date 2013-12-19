@@ -12,7 +12,7 @@ public class JeuHanoi {
 			return;
 		hanoi(n - 1, from, to, temp);
 		System.out
-				.println("Bougez le disque " + n + " de " + from + " à " + to);
+				.println("Bouger le disque " + n + " de " + from + " Ã  " + to);
 		hanoi(n - 1, temp, from, to);
 	}
 
